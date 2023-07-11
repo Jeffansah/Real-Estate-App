@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
-import { baseURL, fetchAPI } from "@/utils/fetchAPI";
 
 const Banner = ({
   purpose,
@@ -30,19 +29,15 @@ const Banner = ({
         {desc2}
       </Text>
       <Button fontSize="xl">
-        <Link href={linkName}>{buttonText}</Link>
+        <Link
+          href={linkName}
+          style={{ textDecoration: "none", color: "#414141" }}
+        >
+          {buttonText}
+        </Link>
       </Button>
     </Box>
   </Flex>
 );
-
-export async function getStaticProps() {
-  const propertyForSale = await fetchAPI(
-    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
-  );
-  const propertyForRent = await fetchAPI(
-    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`
-  );
-}
 
 export default Banner;

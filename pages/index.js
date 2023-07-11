@@ -5,7 +5,7 @@ import Property from "@/components/property";
 
 export default function Home({ propertiesForSale, propertiesForRent }) {
   return (
-    <Box>
+    <Box style={{ textDecoration: "none !important" }}>
       <h1>Hello World</h1>
       <Banner
         purpose="RENT A HOME"
@@ -43,10 +43,10 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 
 export async function getStaticProps() {
   const propertyForSale = await fetchAPI(
-    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=8`
+    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=9`
   );
   const propertyForRent = await fetchAPI(
-    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=8`
+    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=9`
   );
 
   return {

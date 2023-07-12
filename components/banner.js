@@ -34,10 +34,14 @@ const Banner = ({
         <br />
         {desc2}
       </Text>
-      <Button fontSize="xl">
+      <Button
+        fontSize="xl"
+        background="blue.400"
+        _hover={{ background: "blue.600" }}
+      >
         <Link
           href={linkName}
-          style={{ textDecoration: "none", color: "#414141" }}
+          style={{ textDecoration: "none", color: "#ffffff" }}
         >
           {buttonText}
         </Link>

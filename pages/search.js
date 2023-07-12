@@ -33,7 +33,7 @@ const Search = ({ properties }) => {
         alignItems="center"
         onClick={handleClick}
       >
-        <Text>Search property by filters</Text>
+        <Text fontWeight="medium">Search property by filters</Text>
         <Icon paddingLeft="2" w="7" as={BsFilter} />
       </Flex>
       {searchFilters && <SearchFilters />}
@@ -54,7 +54,7 @@ const Search = ({ properties }) => {
           marginBottom="5"
           marginLeft="auto"
           marginRight="auto"
-          style={{ height: "60%", width: "80%" }}
+          style={{ height: "50%", width: "60%" }}
         >
           <Image layout="responsive" src={noResult} alt="No Result" />
           <Text fontSize="2xl" marginTop="2">

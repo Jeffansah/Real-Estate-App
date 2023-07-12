@@ -2,10 +2,12 @@ import Banner from "@/components/banner";
 import { Box, Flex } from "@chakra-ui/react";
 import { baseURL, fetchAPI } from "@/utils/fetchAPI";
 import Property from "@/components/property";
+import rentHome from "../assets/images/renthome.jpg";
+import buyHome from "../assets/images/buyhome.jpg";
 
 export default function Home({ propertiesForSale, propertiesForRent }) {
   return (
-    <Box style={{ textDecoration: "none !important" }}>
+    <Box bg="#effaf9" color="#333333">
       <Banner
         purpose="RENT A HOME"
         title1="Rental Homes for"
@@ -14,9 +16,9 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
         desc2="and more"
         buttonText="Explore Renting"
         linkName="/search?purpose=for-rent"
-        imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
+        imageUrl={rentHome}
       />
-      <Flex flexWrap="wrap">
+      <Flex justifyContent="center" flexWrap="wrap">
         {propertiesForRent.map((property) => (
           <Property property={property} key={property.id} />
         ))}
@@ -29,9 +31,9 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
         desc2=" and more"
         buttonText="Explore Buying"
         linkName="/search?purpose=for-sale"
-        imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008"
+        imageUrl={buyHome}
       />
-      <Flex flexWrap="wrap">
+      <Flex justifyContent="center" flexWrap="wrap">
         {propertiesForSale.map((property) => (
           <Property property={property} key={property.id} />
         ))}
@@ -42,10 +44,10 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 
 export async function getStaticProps() {
   const propertyForSale = await fetchAPI(
-    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=9`
+    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=8`
   );
   const propertyForRent = await fetchAPI(
-    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=9`
+    `${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=8`
   );
 
   return {

@@ -35,16 +35,19 @@ const Property = ({
       justifyContent="start"
       cursor="pointer"
     >
-      <Box>
+      <Box style={{ boxShadow: "0 4px 8px -2px #999999" }}>
         <Image
           style={{
-            minHeight: "260px",
-            maxHeight: "260px",
-            minWidth: "100%",
-            maxWidth: "100%",
+            minHeight: "270px",
+            maxHeight: "270px",
+            minWidth: "385px",
+            maxWidth: "400px",
+            borderRadius: "10px",
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
           }}
           src={coverPhoto ? coverPhoto.url : DefaultImage}
-          width={400}
+          width={500}
           height={260}
           alt="house"
           layout="responsive"
@@ -56,7 +59,7 @@ const Property = ({
             <Box paddingRight="3" color="green.400">
               {isVerified && <MdVerified />}
             </Box>
-            <Text fontWeight="bold" fontSize="lg">
+            <Text fontWeight="medium" fontSize="md">
               $ {millify(price * 0.27)}
               {rentFrequency && `/${rentFrequency}`}
             </Text>
@@ -71,11 +74,13 @@ const Property = ({
           justifyContent="space-between"
           w="250px"
           color="blue.400"
+          fontSize="sm"
+          style={{ marginLeft: "6px" }}
         >
           {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft{" "}
           <BsGridFill />
         </Flex>
-        <Text fontSize="lg">
+        <Text fontSize="sm" style={{ marginLeft: "10px" }}>
           {title.length > 30 ? `${title.substring(0, 30)}...` : title}
         </Text>
       </Box>

@@ -5,7 +5,7 @@ import Link from "next/link";
 const currentYear = new Date().getFullYear();
 
 const Footer = () => (
-  <Box borderTop="1px" py="10" w="100%" borderColor="gray.100">
+  <Box borderTop="1px" py="10" w="100%" borderColor="gray.200" marginTop="10">
     <Flex direction="column" alignItems="center" justifyContent="center">
       <VStack spacing="6">
         <Box>

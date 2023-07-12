@@ -22,12 +22,14 @@ const Navbar = () => {
       p="2"
       borderBottom="1px"
       borderColor="gray.100"
-      paddingLeft="15"
-      paddingRight="15"
+      pl={{ base: "4", md: "15" }}
+      pr={{ base: "4", md: "15" }}
     >
-      <Box fontSize="3xl" color="blue.400" fontWeight="bold">
+      <Box fontSize="3xl" color="blue.400" fontWeight="bold" marginLeft="4">
         <Link href="/">
-          <Box paddingLeft="15">Urban Hub</Box>
+          <Box cursor="pointer" _hover={{ color: "blue.600" }}>
+            Urban Hub
+          </Box>
         </Link>
       </Box>
       <Spacer />
@@ -57,59 +59,39 @@ const Navbar = () => {
           </Menu>
         </Box>
       ) : (
-        <Flex marginTop="2.5" marginRight="25">
-          <Link href="/" passHref>
-            <Box
-              display="flex"
-              alignItems="center"
-              px="4"
-              color="gray.600"
-              _hover={{ color: "blue.600" }}
-            >
-              <FcHome />
-              <Box ml="2">Home</Box>
-            </Box>
-          </Link>
-          <Link href="/search" passHref>
-            <Box
-              display="flex"
-              alignItems="center"
-              px="4"
-              color="gray.600"
-              _hover={{ color: "blue.600" }}
-            >
-              <BsSearch />
-              <Box ml="2">Search</Box>
-            </Box>
-          </Link>
-          <Link href="/search?purpose=for-sale" passHref>
-            <Box
-              display="flex"
-              alignItems="center"
-              px="4"
-              color="gray.600"
-              _hover={{ color: "blue.600" }}
-            >
-              <FcAbout />
-              <Box ml="2">Buy Property</Box>
-            </Box>
-          </Link>
-          <Link href="/search?purpose=for-rent" passHref>
-            <Box
-              display="flex"
-              alignItems="center"
-              px="4"
-              color="gray.600"
-              _hover={{ color: "blue.600" }}
-            >
-              <FiKey />
-              <Box ml="2">Rent Property</Box>
-            </Box>
-          </Link>
+        <Flex alignItems="center" mt={{ base: "2", md: "0" }}>
+          <NavLink href="/" icon={<FcHome />} label="Home" />
+          <NavLink href="/search" icon={<BsSearch />} label="Search" />
+          <NavLink
+            href="/search?purpose=for-sale"
+            icon={<FcAbout />}
+            label="Buy Property"
+          />
+          <NavLink
+            href="/search?purpose=for-rent"
+            icon={<FiKey />}
+            label="Rent Property"
+          />
         </Flex>
       )}
     </Flex>
   );
 };
+
+const NavLink = ({ href, icon, label }) => (
+  <Link href={href} passHref>
+    <Box
+      cursor="pointer"
+      display="flex"
+      alignItems="center"
+      px="4"
+      color="gray.600"
+      _hover={{ color: "blue.600" }}
+    >
+      {icon}
+      <Box ml="2">{label}</Box>
+    </Box>
+  </Link>
+);
 
 export default Navbar;

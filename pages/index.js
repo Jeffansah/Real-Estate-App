@@ -7,7 +7,7 @@ import buyHome from "../assets/images/buyhome.jpg";
 
 export default function Home({ propertiesForSale, propertiesForRent }) {
   return (
-    <Box bg="#effaf9" color="#333333">
+    <Box color="#333333">
       <Banner
         purpose="RENT A HOME"
         title1="Rental Homes for"

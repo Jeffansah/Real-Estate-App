@@ -13,7 +13,13 @@ const Banner = ({
   buttonText,
 }) => (
   <Flex flexWrap="wrap" justifyContent="center" alignItems="center" m="10">
-    <Image src={imageUrl} width={500} height={300} alt="banner" />
+    <Image
+      src={imageUrl}
+      width={1000}
+      height={800}
+      alt="banner"
+      style={{ borderRadius: "18px", marginBottom: "5rem", marginTop: "3rem" }}
+    />
     <Box p={5}>
       <Text color="gray.500" fontSize="sm" fontWeight="medium">
         {purpose}

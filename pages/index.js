@@ -6,7 +6,6 @@ import Property from "@/components/property";
 export default function Home({ propertiesForSale, propertiesForRent }) {
   return (
     <Box style={{ textDecoration: "none !important" }}>
-      <h1>Hello World</h1>
       <Banner
         purpose="RENT A HOME"
         title1="Rental Homes for"
